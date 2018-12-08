@@ -1,3 +1,16 @@
 .special {
   background-color: #2b82ff;
 }
+
+li {
+  &.selected {
+    div {
+      &.bg-light {
+        background-color: #666666 !important;
+      }
+      &.text-dark {
+        color: white !important;
+      }
+    }
+  }
+}

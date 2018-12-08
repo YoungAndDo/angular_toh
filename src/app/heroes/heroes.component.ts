@@ -16,6 +16,7 @@ export class HeroesComponent implements OnInit {
   hero: Hero;
   isSpecial = true;
   heroes = HEROES;
+  selectedHero: Hero;
 
   constructor() {
     this.hero = new Hero();
@@ -29,5 +30,10 @@ export class HeroesComponent implements OnInit {
   onSave(e) {
     console.log(e);
     alert('he');
+  }
+
+  onSelect(hero: Hero) {
+    this.selectedHero = hero;
+    console.log(hero);
   }
 }
