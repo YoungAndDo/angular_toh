@@ -1,27 +1,28 @@
+<router-outlet></router-outlet>
+
 <!--<h2>{{ hero.name }} Details</h2>-->
-<!--<div><span>id: </span>{{hero.id}}</div>-->
+<!--<div><span>hero_id: </span>{{hero.hero_id}}</div>-->
 <!--<div><span>name: </span>{{hero.name}}</div>-->
 
 <h1>My Heroes</h1>
 
 <ul>
-  <li class="d-flex m-1" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero===selectedHero">
-    <span class="rounded-left p-2 bg-primary text-light">{{hero.id}}</span>
+  <li class="d-flex m-1" *ngFor="let hero of heroes" routerLink="{{hero.hero_id}}"
+      (click)="onSelect(hero)" [class.selected]="hero===selectedHero">
+    <span class="rounded-left p-2 bg-primary text-light">{{hero.hero_id}}</span>
     <div class="rounded-right p-2 bg-light text-dark w-50">{{hero.name}}</div>
   </li>
 </ul>
 
 <!--<div *ngIf="selectedHero">-->
   <!--<h2>{{ selectedHero.name | uppercase }} Details</h2>-->
-  <!--<div><span>id: </span>{{selectedHero.id}}</div>-->
+  <!--<div><span>hero_id: </span>{{selectedHero.hero_id}}</div>-->
   <!--<div>-->
     <!--<label>name:-->
       <!--<input [(ngModel)]="selectedHero.name" placeholder="name">-->
     <!--</label>-->
   <!--</div>-->
 <!--</div>-->
-
-<app-hero-detail [childHero]="selectedHero"></app-hero-detail>
 
 <!--<div>-->
   <!--<button [disabled]="isSpecial">propery binding button</button>-->
