@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import { JqueryComponent } from './jquery/jquery.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { MydatePipe } from './mydate.pipe';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,6 +20,7 @@ const routes: Routes = [
   {path: 'heroes', component: HeroesComponent, children: [
       {path: ':hero_id', component:HeroDetailComponent}
     ]},
+  {path: 'jquery', component: JqueryComponent},
 ];
 
 @NgModule({
@@ -25,7 +29,9 @@ const routes: Routes = [
     HeroesComponent,
     HeroDetailComponent,
     HomeComponent,
-    TodoComponent
+    TodoComponent,
+    JqueryComponent,
+    MydatePipe
   ],
   imports: [ /* 외부 모듈 */
     BrowserModule,
@@ -33,6 +39,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
