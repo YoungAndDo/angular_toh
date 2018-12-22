@@ -13,6 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { JqueryComponent } from './jquery/jquery.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { MydatePipe } from './mydate.pipe';
+import { HighlightDirective } from './highlight.directive';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,6 +23,9 @@ const routes: Routes = [
       {path: ':hero_id', component:HeroDetailComponent}
     ]},
   {path: 'jquery', component: JqueryComponent},
+  {path: 'login', component: LoginComponent},
+  //lazy-loading
+  {path: 'admin', loadChildren: './admin/admin.module#AdminModule'}
 ];
 
 @NgModule({
@@ -31,7 +36,9 @@ const routes: Routes = [
     HomeComponent,
     TodoComponent,
     JqueryComponent,
-    MydatePipe
+    MydatePipe,
+    HighlightDirective,
+    LoginComponent
   ],
   imports: [ /* 외부 모듈 */
     BrowserModule,

@@ -7,7 +7,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {TodoVo} from "./domain/todo.vo";
 import {ResultVo} from "./domain/result.vo";
-import {start} from "repl";
+import {MemberVo} from "./domain/member.vo";
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +50,9 @@ export class HeroService {
 
   removeTodo(todo_id: number): Observable<ResultVo> {
     return this.http.delete<ResultVo>(`${environment.HOST}/api/todo?todo_id=${todo_id}`);
+  }
+
+  login(member: MemberVo): Observable<ResultVo> {
+    return this.http.post<ResultVo>(`${environment.HOST}/api/login`, member, {headers: this.headers});
   }
 }

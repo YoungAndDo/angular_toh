@@ -30,11 +30,11 @@
   <tbody id="todo_list">
 
   <ng-template ngFor let-todo [ngForOf]="todoList">
-    <tr *ngIf="!todo.isEdited">
+    <tr *ngIf="!todo.isEdited" appHighlight [highlightColor]="'#C8FFFF'">
       <td>{{todo.isFinished ? '완료': '미완료'}}</td>
       <td>{{todo.todo}}</td>
-      <td>{{todo.created}}</td>
-      <td>{{todo.updated}}</td>
+      <td>{{todo.created |mydate}}</td>
+      <td>{{todo.updated |date: 'yy년 MM월 dd일 a HH:mm'}}</td>
       <td><button class="btn btn-success" (click)="save(todo)">수정</button></td>
       <td><button class="btn btn-danger" (click)="remove(todo)">삭제</button></td>
     </tr>
@@ -57,4 +57,8 @@
                 (pageChange)="pageChanged($event)">
 </ngb-pagination>
 
-<p>test: {{'test'|mydate:'asdasd'}}</p>
+<!--
+<p>{{ 10000}} 원</p>
+<p>{{ 10000 | mydate: '$'}} $</p>
+<p>{{ 10000 | mydate: 'yen'}} yen</p>
+-->
